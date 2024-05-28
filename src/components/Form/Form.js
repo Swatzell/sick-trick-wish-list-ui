@@ -7,7 +7,16 @@ const Form = ({ addTrick }) => {
   const [tutorial, setTutorial] = useState('');
 
 
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newTrick = { stance, name, obstacle, tutorial, id: Date.now() };
+    addTrick(newTrick);
+    
+    setStance('');
+    setName('');
+    setObstacle('');
+    setTutorial('');
+  };
 
 
 
