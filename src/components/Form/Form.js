@@ -18,6 +18,36 @@ const Form = ({ addTrick }) => {
     setTutorial('');
   };
 
-
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Stance"
+        value={stance}
+        onChange={(e) => setStance(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Obstacle"
+        value={obstacle}
+        onChange={(e) => setObstacle(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Tutorial"
+        value={tutorial}
+        onChange={(e) => setTutorial(e.target.value)}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
 
 }
+
+export default Form;
