@@ -30,23 +30,28 @@ const Form = ({ addTrick }) => {
       </select>
       <input
         type="text"
-        placeholder="Name"
+        placeholder="Name of Trick"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <input
-        type="text"
-        placeholder="Obstacle"
+      <select
         value={obstacle}
         onChange={(e) => setObstacle(e.target.value)}
-      />
+      >
+        <option value="">Select Obstacle</option>
+        <option value="Flatground">Flatground</option>
+        <option value="Ledge">Ledge</option>
+        <option value="Rail">Rail</option>
+        <option value="Stairs">Stairs</option>
+        <option value="Pool">Pool</option>
+      </select>
       <input
         type="text"
-        placeholder="Tutorial"
+        placeholder="Link to Tutorial"
         value={tutorial}
         onChange={(e) => setTutorial(e.target.value)}
       />
-      <button type="submit">Submit</button>
+      <button type="submit">Send It!</button>
     </form>
   );
 
