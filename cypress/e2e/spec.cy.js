@@ -16,6 +16,7 @@ describe('Trick Form and api trickList', () => {
       });
     });
   });
+ 
 
   it('should allow the input value in the form', () => {
     cy.get('select').first().select('Regular').should('have.value', 'Regular');
@@ -24,5 +25,20 @@ describe('Trick Form and api trickList', () => {
     cy.get('input[placeholder="Link to Tutorial"]').type('https://example.com/heelflip').should('have.value', 'https://example.com/heelflip');
   });
 
-
+  it('should add a new trick to the DOM', () => {
+    cy.get('select').first().select('Switch');
+    cy.get('input[placeholder="Name of Trick"]').type('Shuvit');
+    cy.get('select').eq(1).select('Stairs');
+    cy.get('input[placeholder="Link to Tutorial"]').type('https://example.com/shuvit');
+    cy.get('button').contains('Send It!').click();
+    
+    cy.get('ul').within(() => {
+      cy.get('li').last().within(() => {
+        cy.contains('Stance:Switch');
+        cy.contains('Name:Shuvit');
+        cy.contains('Obstacle:Stairs');
+        cy.contains('Tutorial: https://example.com/shuvit');
+      });
     });
+  })
+})
