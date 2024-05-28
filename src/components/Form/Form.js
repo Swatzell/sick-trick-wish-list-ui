@@ -20,12 +20,14 @@ const Form = ({ addTrick }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Stance"
+       <select
         value={stance}
         onChange={(e) => setStance(e.target.value)}
-      />
+      >
+        <option value="">Choose your Stance</option>
+        <option value="Regular">Regular</option>
+        <option value="Switch">Switch</option>
+      </select>
       <input
         type="text"
         placeholder="Name"
